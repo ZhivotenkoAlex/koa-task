@@ -21,22 +21,22 @@ exports.router.post('/api/auth/refresh_tokens', async (ctx) => {
     await User.refreshTokens(ctx);
 });
 // Todo routs
-exports.router.get('/api/todo', async (ctx) => {
+exports.router.get('/api/todos', async (ctx) => {
     await Todo.getItems(ctx);
 });
-exports.router.get('/api/todo/id', async (ctx) => {
+exports.router.get('/api/todos/:id', async (ctx) => {
     await Todo.getItemById(ctx);
 });
-exports.router.post('/api/todo', async (ctx) => {
+exports.router.post('/api/todos', async (ctx) => {
     await Todo.addItem(ctx);
 });
-exports.router.patch('/api/todo/title', async (ctx) => {
+exports.router.patch('/api/todos/title', async (ctx) => {
     await Todo.editItem(ctx);
 });
-exports.router.patch('/api/todo/check', async (ctx) => {
+exports.router.patch('/api/todos/check', async (ctx) => {
     await Todo.setCheck(ctx);
 });
-exports.router.delete('/api/todo', async (ctx) => {
+exports.router.delete('/api/todos', async (ctx) => {
     await Todo.deleteItem(ctx);
 });
 exports.default = exports.router;

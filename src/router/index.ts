@@ -3,6 +3,7 @@ import * as Router from "koa-router";
 import { Context, DefaultState } from "koa";
 import { UserController } from '../controller/userController';
 import { TodoController } from '../controller/todoController';
+import { appendFile } from "fs";
 
 export const router = new Router();
 const User = new UserController();
@@ -25,27 +26,27 @@ router.post('/api/auth/refresh_tokens', async(ctx)=>{
 
 // Todo routs
 
-router.get('/api/todo', async(ctx)=>{    
+router.get('/api/todos', async(ctx)=>{    
     await Todo.getItems(ctx)
  })
 
-router.get('/api/todo/id', async(ctx)=>{    
-    await Todo.getItemById(ctx)
+router.get('/api/todos/:id', async(ctx)=>{ 
+   await Todo.getItemById(ctx)
  })
 
-router.post('/api/todo', async(ctx)=>{
+router.post('/api/todos', async(ctx)=>{
     await Todo.addItem(ctx)
 })
 
-router.patch('/api/todo/title', async(ctx)=>{
+router.patch('/api/todos/title', async(ctx)=>{
     await Todo.editItem(ctx)
 })
 
-router.patch('/api/todo/check', async(ctx)=>{
+router.patch('/api/todos/check', async(ctx)=>{
     await Todo.setCheck(ctx)
 })
 
-router.delete('/api/todo', async(ctx)=>{
+router.delete('/api/todos', async(ctx)=>{
  await Todo.deleteItem(ctx)
 })
 

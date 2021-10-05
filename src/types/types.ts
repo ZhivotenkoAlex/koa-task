@@ -61,7 +61,7 @@ export interface ITodoModel {
   deleteElement(id: string | number): Promise<void | Error>;
 }
 export interface IUserModel {
-  findUser(query: string|string[]): Promise<IUser | Error>;
+  findUser(query: string | string[]): Promise<IUser | Error>;
   addUser(email: string, password: string): Promise<IUser | undefined | Error>;
   login(
     email: string,
