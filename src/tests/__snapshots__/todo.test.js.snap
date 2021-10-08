@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit testing todo controllers testing addItem 1`] = `
+Object {
+  "body": Object {
+    "message": "Item was not created",
+  },
+  "request": Object {
+    "query": Object {
+      "Authorization": "token",
+    },
+  },
+  "response": Object {
+    "set": [MockFunction],
+  },
+  "status": 404,
+}
+`;
+
+exports[`Unit testing todo controllers testing addItem 2`] = `Array []`;

@@ -1,10 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
-const Router = require("koa-router");
+const koa_router_1 = __importDefault(require("koa-router"));
 const userController_1 = require("../controller/userController");
 const todoController_1 = require("../controller/todoController");
-exports.router = new Router();
+exports.router = new koa_router_1.default();
 const User = new userController_1.UserController();
 const Todo = new todoController_1.TodoController();
 // Users routs

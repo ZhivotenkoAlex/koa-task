@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit testing todo controllers shold get all todos 1`] = `
+Object {
+  "body": Object {
+    "message": [TypeError: Cannot read property 'query' of undefined],
+  },
+  "response": Object {
+    "set": [MockFunction],
+  },
+  "status": 200,
+}
+`;
+
+exports[`Unit testing todo controllers shold get all todos 2`] = `Array []`;
+
+exports[`Unit testing todo controllers shold get all todos 3`] = `
+Object {
+  "body": Object {
+    "message": "Item was not created",
+  },
+  "response": Object {
+    "set": [MockFunction],
+  },
+  "status": 404,
+}
+`;
+
+exports[`Unit testing todo controllers shold get all todos 4`] = `Array []`;

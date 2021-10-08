@@ -1,14 +1,17 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Koa = require("koa");
+const koa_1 = __importDefault(require("koa"));
 const cors = require('@koa/cors');
-const koaBody = require("koa-body");
-const router_1 = require("./router");
+const koa_body_1 = __importDefault(require("koa-body"));
+const router_1 = __importDefault(require("./router"));
 const verifyAccess_1 = require("./helpers/verifyAccess");
 const Verify = new verifyAccess_1.VerifyAccess();
-const app = new Koa();
+const app = new koa_1.default();
 app.use(cors());
-app.use(koaBody());
+app.use((0, koa_body_1.default)());
 // Middleware for token verification 
 app.use(async (ctx, next) => {
     try {
@@ -37,7 +40,8 @@ app.use(async (ctx, next) => {
 app.use(router_1.default.routes());
 app.use(router_1.default.allowedMethods());
 const port = 8000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log('The server started on port 8000');
 });
+module.exports = app;
 //# sourceMappingURL=app.js.map

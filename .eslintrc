@@ -13,7 +13,7 @@
         "tsconfigRootDir": "__dirname" 
       },    
       "rules": {
-         "react/jsx-filename-extension": [2, { "extensions": [".js",".jsx", ".ts",".tsx"] }],
+         "react/jsx-filename-extension": [2, { "extensions": [".js",".jsx", ".ts",".tsx",".test.js"] }],
          "@typescript-eslint/dot-notation": "off",
          "@typescript-eslint/no-implied-eval":"off",
          "@typescript-eslint/no-throw-literal":"off",

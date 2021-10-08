@@ -1,10 +1,10 @@
-import * as Koa from 'koa'
+import Koa from 'koa';
 const cors = require('@koa/cors')
-import * as koaBody from 'koa-body'
+import koaBody from 'koa-body';
 import routerApi from './router'
 import { VerifyAccess } from './helpers/verifyAccess';
 const Verify = new VerifyAccess()
-
+    
 const app = new Koa()
 app.use(cors())
 app.use(koaBody())
@@ -36,14 +36,13 @@ app.use(async (ctx, next) => {
 app.use(routerApi.routes())
 app.use(routerApi.allowedMethods())
 
-
-
 const port = 8000;
 
-app.listen(port, () => {
+
+const server = app.listen(port, () => {
     console.log('The server started on port 8000');
   });
 
-
+  module.exports = app
 
 

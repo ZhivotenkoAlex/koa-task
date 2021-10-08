@@ -1,4 +1,4 @@
-import* as mariadb from 'mariadb';
+import * as mariadb from 'mariadb';
 
 export const pool: mariadb.Pool = mariadb.createPool({
   host: 'localhost',
@@ -6,5 +6,5 @@ export const pool: mariadb.Pool = mariadb.createPool({
   password: '111',
   database: 'nodeDB',
   connectTimeout:10000,
-  connectionLimit: 30
+  connectionLimit: 30,
 });

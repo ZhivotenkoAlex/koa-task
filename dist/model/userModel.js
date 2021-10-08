@@ -1,12 +1,34 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModel = void 0;
-const bcrypt = require("bcrypt");
+const bcrypt_1 = __importDefault(require("bcrypt"));
 // import * as dotenv from 'dotenv';
 // dotenv.config({ path: __dirname + './env' });
 const pool_1 = require("../db/pool");
-const jwt = require("jsonwebtoken");
-const randomString = require("randomstring");
+const jwt = __importStar(require("jsonwebtoken"));
+const randomString = __importStar(require("randomstring"));
 class UserModel {
     constructor() {
         // this.SECRET = process.env.SECRET;
@@ -41,8 +63,8 @@ class UserModel {
         try {
             const user = await this.findUser(email);
             const lifeTime = Number(this.REFRESH_TOKEN_LIFE_TIME);
-            const salt = await bcrypt.genSalt(Number(process.env.SALT_ROUNDS));
-            const hashPassword = await bcrypt.hash(password, salt, null);
+            const salt = await bcrypt_1.default.genSalt(Number(process.env.SALT_ROUNDS));
+            const hashPassword = await bcrypt_1.default.hash(password, salt, null);
             if ((await this.validateEmail(email)) === false) {
                 return new Error(`Email ${email} is invalid`);
             }
@@ -71,7 +93,7 @@ class UserModel {
             if (user instanceof Error) {
                 return new Error('User does not exist');
             }
-            const isValid = await bcrypt.compare(password, user.password);
+            const isValid = await bcrypt_1.default.compare(password, user.password);
             if (!isValid) {
                 return new Error('Invalid credentials');
             }
@@ -99,8 +121,8 @@ class UserModel {
     }
     async generateRefreshToken() {
         try {
-            const salt = await bcrypt.genSalt(10);
-            const token = await bcrypt.hash(randomString.generate(32), salt, null);
+            const salt = await bcrypt_1.default.genSalt(10);
+            const token = await bcrypt_1.default.hash(randomString.generate(32), salt, null);
             return token;
         }
         catch (error) {

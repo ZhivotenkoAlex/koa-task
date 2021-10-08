@@ -1,4 +1,4 @@
-import bcrypt = require('bcrypt');
+import bcrypt from 'bcrypt'
 // import * as dotenv from 'dotenv';
 // dotenv.config({ path: __dirname + './env' });
 import { pool } from '../db/pool';
