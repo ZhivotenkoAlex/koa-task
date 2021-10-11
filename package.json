@@ -17,6 +17,7 @@
     "@types/bcrypt": "^5.0.0",
     "@types/koa-router": "^7.4.4",
     "@types/node": "^16.7.10",
+    "assert": "^2.0.0",
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",

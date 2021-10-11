@@ -16,6 +16,7 @@ app.use((0, koa_body_1.default)());
 app.use(async (ctx, next) => {
     try {
         const Authorization = ctx.request.query.Authorization || ctx.request.body.token;
+        console.log(ctx.request.url);
         let result;
         if (ctx.request.url === '/api/user' || ctx.request.url === '/api/auth/login' || ctx.request.url === '/api/auth/refresh_tokens') {
             await next();
